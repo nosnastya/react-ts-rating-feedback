@@ -4,7 +4,7 @@ import { Feedback } from "../../redux/feedback/types/feedback";
 
 import Form from "../../components/feedback/form";
 import FeedbackItem from "../../components/feedback/feedback-item";
-import Chart from "../../components/feedback/chart";
+import Graph from "../../components/feedback/graph";
 
 import styles from "./feedback.module.scss";
 
@@ -42,7 +42,7 @@ export class FeedbackViewComponent extends React.Component<FeedbackViewProps> {
                     <Form onSubmit={this.onFeedbackFormSubmit}/>
                 </div>
                 <div className="disp-flex flex-align__center">
-                    <Chart feedbackList={this.props.feedbackList} />
+                    <Graph feedbackList={this.props.feedbackList} />
                 </div>
             </section>
             <section className={`${styles.feedbackList}`}>

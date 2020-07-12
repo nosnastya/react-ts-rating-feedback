@@ -22,20 +22,20 @@ const ROUTER_LIST: RouterList = [
 ];
 
 export const Router: FC = () => {
-  return (
-    <BrowserRouter>
-      <Switch>
-        {ROUTER_LIST.map((route, idx) => {
-          const Page = route.component;
+    return (
+        <BrowserRouter>
+            <Switch>
+                {ROUTER_LIST.map((route, idx) => {
+                    const Page = route.component;
 
-          return (
-            <Route key={idx} path={route.path} exact={route.exact} name={route.name}>
-              <Page />
-            </Route>
-          );
-        })}
-        <Redirect to="/" />
-      </Switch>
-    </BrowserRouter>
-  );
+                    return (
+                        <Route key={idx} path={route.path} exact={route.exact} name={route.name}>
+                        <Page />
+                        </Route>
+                    );
+                })}
+                <Redirect to="/" />
+            </Switch>
+        </BrowserRouter>
+    );
 };
