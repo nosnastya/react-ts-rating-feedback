@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./button.module.scss";
 
 type buttonType =
 "submit"
@@ -14,7 +15,7 @@ interface ButtonProps {
 
 export const Button: React.FC<ButtonProps> = ({ buttonText, className, type = "button", onClick }) => {
     return (
-        <button className={`button ${className}`} onClick={onClick} type={type}>
+        <button className={`${styles.button} ${className}`} onClick={onClick} type={type}>
             {buttonText}
         </button>
     );

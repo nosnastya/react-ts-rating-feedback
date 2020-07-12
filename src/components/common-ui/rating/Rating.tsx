@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./rating.module.scss"
-import IconStarEmpty from './icon-star-0.svg'
-import IconStarFull from './icon-star-1.svg'
+import { IconStarEmpty } from './icon-star-empty'
+import { IconStarFull } from './icon-star-full'
 
 export interface RatingProps {
     value: number;
@@ -26,13 +26,13 @@ export class Rating extends React.Component<RatingProps> {
                         className={`${styles.star} ${!isActive && styles.activeStar}`}
                         onClick={() => isActive && this.props.onChange && this.props.onChange(value)}
                     >
-                        <span className={styles.icon}>
+                        <span className={styles.starIcon}>
                             {currentValue >= value ? <IconStarFull/> : <IconStarEmpty/>}
                         </span>
                     </div>
                     );
                 })}
-                {error ? <p className="text-sm text-error">error</p> : null }
+                {error ? <p className="text-sm text-error">{error}</p> : null }
             </div>
         );
     }

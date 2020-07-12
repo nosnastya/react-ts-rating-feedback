@@ -136,6 +136,7 @@ export class Form extends React.Component<FormProps, FormState> {
           placeholder="Name"
           onChange={this.onChange}
           value={form.name}
+          name="name"
           error={(isTouched.name && errors.name) ? errors.name : undefined }
         />
 
@@ -144,6 +145,7 @@ export class Form extends React.Component<FormProps, FormState> {
           placeholder="Email"
           onChange={this.onChange}
           value={form.email}
+          name="email"
           error={(isTouched.email && errors.email) ? errors.email : undefined }
         />
 
@@ -152,11 +154,14 @@ export class Form extends React.Component<FormProps, FormState> {
           placeholder="Comment"
           onChange={this.onChange}
           value={form.comment}
+          name="comment"
           error={(isTouched.comment && errors.comment) ? errors.comment : undefined }
         />
-
+        <div className="text-center">
+            <strong>Please you rate our service?</strong>
+        </div>
         <Rating
-          className="form-field"
+          className="form-field flex-align__center"
           onChange={this.onRatingChange}
           value={form.rating}
           error={(isTouched.rating && errors.rating) ? errors.rating : undefined }

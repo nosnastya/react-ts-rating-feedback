@@ -1,7 +1,7 @@
 import React, { FC } from "react";
 import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
 import { ComponentType } from "react";
-import { FeedbackView } from "../routes/feedback";
+import { FeedbackView }  from "../routes/feedback";
 
 interface RouteType {
     path: string;

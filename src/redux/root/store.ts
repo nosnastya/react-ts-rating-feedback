@@ -13,14 +13,22 @@ const persistConfig = {
 const REDUX_INITIAL_STATE = {
     feedback: {
         list: [
-          {
-            id: "1234567123-aaa",
-            name: "Test",
-            email: "testr@gmail.com",
-            rating: 5,
-            comment: "Perfect",
-            createdAt: new Date('June 19, 2020 23:15:30'),
-          },
+            {
+                id: "1234567123-aaa",
+                name: "Test",
+                email: "testr@gmail.com",
+                rating: 4,
+                comment: "Perfect",
+                createdAt: new Date('June 19, 2020 23:15:30'),
+            },
+            {
+                id: "1234567123-bbb",
+                name: "Test",
+                email: "testr@gmail.com",
+                rating: 5,
+                comment: "Good",
+                createdAt: new Date('June 25, 2020 23:15:30'),
+            }
         ]
     }
 };

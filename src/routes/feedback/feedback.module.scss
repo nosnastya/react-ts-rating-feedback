@@ -1,9 +1,45 @@
 @import '../../styles/variables';
 
 .mainWrapper {
-    padding: 25px;
+    margin: 25px;
+    border-radius: 8px;
+    background-color: $dark-navy;
 
-    @media (min-width: $tablet) {
-        padding: 40px 15%;
+    @media (min-width: $desktop) {
+        margin: 40px 15%;
+    }
+}
+
+.topSection {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    padding: 20px 20px 0;
+
+    @media (min-width: $desktop) {
+        flex-direction: row;
+        margin-bottom: 40px;
+        padding: 20px 40px 0;
+    }
+}
+
+.formWrapper {
+    padding: 20px;
+    min-width: 40%;
+    background: $navy;
+    border-radius: 8px;
+}
+
+.mainHeader {
+    padding: 15px;
+    background: $navy;
+    font-weight: normal;
+    border-radius: 8px 8px 0 0;
+}
+
+.feedbackList {
+    padding: 20px;
+    @media (min-width: $desktop) {
+        padding: 20px 40px;
     }
 }
