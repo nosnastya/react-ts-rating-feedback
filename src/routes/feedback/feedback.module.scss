@@ -1,0 +1,9 @@
+@import '../../styles/variables';
+
+.mainWrapper {
+    padding: 25px;
+
+    @media (min-width: $tablet) {
+        padding: 40px 15%;
+    }
+}
