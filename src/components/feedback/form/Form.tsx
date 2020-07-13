@@ -8,13 +8,26 @@ import Button from "../../common-ui/button";
 import { Feedback } from "../../../redux/feedback/types/feedback";
 import { validate as validateEmail } from "../../../helpers/email";
 
+type Error = {
+    name: string | null,
+    email: string | null,
+    comment: string | null,
+    rating: string | null,
+}
+
+type FieldToBool = {
+    name: boolean,
+    email: boolean,
+    comment: boolean,
+    rating: boolean,
+}
 interface FormProps {
     onSubmit(form: Feedback): void;
 }
 interface FormState {
     form: Omit<Feedback, "id" | "createdAt">;
-    errors: Record<keyof Omit<Feedback, "id" | "createdAt">, null | string>;
-    isTouched: Record<keyof Omit<Feedback, "id" | "createdAt">, boolean>;
+    errors: Error;
+    isTouched: FieldToBool;
 }
 
 export class Form extends React.Component<FormProps, FormState> {
@@ -43,27 +56,27 @@ export class Form extends React.Component<FormProps, FormState> {
         };
     }
 
-    private onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         this.change(e.target.name as keyof FormState["form"], e.target.value);
     };
 
-    private onRatingChange = (value: number) => {
+    onRatingChange = (value: number) => {
         this.change("rating", value);
     };
 
-    private change<T extends keyof FormState["form"]>(name: T, value: FormState["form"][T]) {
+    change<T extends keyof FormState["form"]>(name: T, value: FormState["form"][T]) {
         this.setState(
-        {
-            form: {
-            ...this.state.form,
-            [`${name}`]: value,
+            {
+                form: {
+                ...this.state.form,
+                [`${name}`]: value,
+                },
+                isTouched: {
+                ...this.state.isTouched,
+                [`${name}`]: true,
+                },
             },
-            isTouched: {
-            ...this.state.isTouched,
-            [`${name}`]: true,
-            },
-        },
-        this.validate,
+            this.validate,
         );
     }
 
